@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wades</title>
+    <title>wade</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,41 +12,34 @@
     <div class="background" style="background-image: url('bg.png');"></div>
     <div class="overlay"></div>
 
-    <button class="audio-btn" id="audio-toggle">🎵</button>
-
     <div class="card fade-in">
         <div class="avatar-wrapper">
             <img src="avatar.png" alt="avatar" class="avatar">
         </div>
 
-        <h1 class="username">wades</h1>
+        <h1 class="username">wade</h1>
 
-        <div class="info-list">
-            <a href="https://t.me/wades" target="_blank" class="info-item">
-                <span class="label">direct me</span>
-                <span class="value">t.me/wades</span>
+        <div class="icon-list">
+            <a href="https://t.me/wades" target="_blank" title="t.me/wades">
+                <i class="fab fa-telegram"></i>
             </a>
-            
-            <a href="https://t.me/slvtc" target="_blank" class="info-item">
-                <span class="label">channel</span>
-                <span class="value">t.me/slvtc</span>
+            <a href="https://github.com/wwades" target="_blank" title="github.com/wwades">
+                <i class="fab fa-github"></i>
             </a>
-
-            <a href="https://github.com/wwades" target="_blank" class="info-item">
-                <span class="label">github</span>
-                <span class="value">github.com/wwades</span>
+            <a href="mailto:couplesuicide@proton.me" title="couplesuicide@proton.me">
+                <i class="fas fa-envelope"></i>
             </a>
-
-            <a href="mailto:couplesuicide@proton.me" class="info-item">
-                <span class="label">mail</span>
-                <span class="value">couplesuicide@proton.me</span>
-            </a>
-
-            <a href="https://pug-vpn.github.io" target="_blank" class="info-item">
-                <span class="label">vpn project</span>
-                <span class="value">pug-vpn.github.io</span>
-            </a>
+            <a href="https://pug-vpn.github.io" target="_blank" title="pug-vpn.github.io">
+                <i class="fas fa-shield-alt"></i> </a>
         </div>
+    </div>
+
+    <div class="mini-player">
+        <button id="player-toggle">
+            <i id="icon-play" class="fas fa-play"></i>
+            <i id="icon-pause" class="fas fa-pause hidden"></i>
+        </button>
+        <span class="player-text">wade / music</span>
     </div>
 
     <audio id="bg-music" loop>

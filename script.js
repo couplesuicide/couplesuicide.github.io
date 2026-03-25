@@ -1,20 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('bg-music');
-    const toggleBtn = document.getElementById('audio-toggle');
-    const mutedIcon = document.getElementById('icon-muted');
-    const playingIcon = document.getElementById('icon-playing');
+    const toggleBtn = document.getElementById('player-toggle');
+    const playIcon = document.getElementById('icon-play');
+    const pauseIcon = document.getElementById('icon-pause');
+
 
     let isPlaying = false;
 
     toggleBtn.addEventListener('click', () => {
         if (isPlaying) {
             audio.pause();
-            mutedIcon.classList.remove('hidden');
-            playingIcon.classList.add('hidden');
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
         } else {
-            audio.play().catch(e => console.log("Нужен клик для старта музыки"));
-            mutedIcon.classList.add('hidden');
-            playingIcon.classList.remove('hidden');
+
+            audio.play().catch(e => {
+                console.error("Автовоспроизведение заблокировано браузером. Ждем клика.");
+            });
+            playIcon.classList.add('hidden');
+            pauseIcon.classList.remove('hidden');
         }
         isPlaying = !isPlaying;
     });
