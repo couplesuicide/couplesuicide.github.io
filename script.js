@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mutedIcon.classList.remove('hidden');
             playingIcon.classList.add('hidden');
         } else {
-            audio.play().catch(e => console.log("Нужен клик для старта музыки"));
+            audio.play().catch(e => console.log("Нужен клик для старта"));
             mutedIcon.classList.add('hidden');
             playingIcon.classList.remove('hidden');
         }
