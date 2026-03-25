@@ -8,24 +8,25 @@
 body {
     background-color: #000;
     color: #fff;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow-x: hidden; /* Защита от горизонтального скролла */
 }
 
 .background {
-    position: absolute;
+    position: fixed; /* Чтобы фон не прыгал при скролле */
     inset: 0;
     background-size: cover;
     background-position: center;
     filter: blur(15px);
     z-index: -2;
+    transform: scale(1.1); /* Чтобы края не белели при блюре */
 }
 
 .overlay {
-    position: absolute;
+    position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
     z-index: -1;
@@ -34,23 +35,37 @@ body {
 .card {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px;
+    padding: 30px 20px;
     border-radius: 20px;
-    width: 350px;
+    /* Адаптивная ширина */
+    width: 90%; 
+    max-width: 350px; 
     text-align: center;
+    margin: 20px;
+}
+
+.avatar-wrapper {
+    display: inline-block;
+    margin-bottom: 15px;
 }
 
 .avatar {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
-    margin-bottom: 20px;
     border: 2px solid rgba(255, 255, 255, 0.2);
+    object-fit: cover;
+}
+
+.username {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
 .info-list {
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -58,13 +73,15 @@ body {
 
 .info-item {
     background: rgba(255, 255, 255, 0.05);
-    padding: 12px;
+    padding: 14px;
     border-radius: 12px;
     text-decoration: none;
     color: #fff;
     transition: 0.3s;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    overflow: hidden; /* Чтобы текст не вылазил */
 }
 
 .info-item:hover {
@@ -72,4 +89,47 @@ body {
     transform: scale(1.02);
 }
 
+.label {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.value {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Три точки, если адрес слишком длинный */
+    margin-left: 10px;
+}
+
+/* Кнопка музыки */
+.audio-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .hidden { display: none; }
+
+/* Анимация появления */
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
