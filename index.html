@@ -4,25 +4,175 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wade</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --base: #1e1e2e;
+            --surface0: #313244;
+            --overlay0: #6c7086;
+            --text: #cdd6f4;
+            --blue: #89b4fa;
+            --teal: #94e2d5;
+            --lavender: #b4befe;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text);
+    
+    background-color: #11111b; 
+    overflow-x: hidden;
+}
+
+      
+        
+        
+
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 440px;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid rgba(180, 190, 254, 0.3);
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+            color: rgb(147, 164, 190);
+            text-transform: lowercase;
+            letter-spacing: -1px;
+        }
+
+        
+        .console-box {
+            background: rgba(49, 50, 68, 0.5); 
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 226, 213, 0.1);
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+
+        .console-line {
+            font-size: 11px;
+            color: rgb(146, 163, 189);
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+        }
+
+        .console-line::before {
+            content: '> ';
+            color: var(--lavender);
+        }
+
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Жидкий акрил */
+        .btn {
+            text-decoration: none;
+            color: var(--text);
+            background: rgba(49, 50, 68, 0.3);
+            backdrop-filter: blur(25px) saturate(170%);
+            -webkit-backdrop-filter: blur(25px) saturate(170%);
+            border: 1px solid rgba(205, 214, 244, 0.05);
+            padding: 18px 25px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .btn i {
+            font-size: 18px;
+            width: 24px;
+            color: rgb(146, 163, 189);
+            opacity: 0.8;
+        }
+
+        .btn:hover {
+            background: rgba(137, 180, 250, 0.1);
+            border-color: rgba(137, 180, 250, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 10px;
+            color: var(--overlay0);
+            letter-spacing: 4px;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="background" style="background-image: url('bg.png');"></div>
+    <div class="bg-layer"></div>
     <div class="overlay"></div>
 
-    <div class="card fade-in">
-        <div class="avatar-wrapper">
-            <img src="avatar.png" alt="avatar" class="avatar">
+    <div class="container">
+        <img src="avatar.png" alt="wade" class="avatar">
+        <h1>wade</h1>
+
+        <div class="console-box">
+            <div class="console-line">computer science / low profile</div>
         </div>
-        <h1 class="username">wade</h1>
-        <div class="icon-list">
-            <a href="https://t.me/wades" target="_blank"><i class="fab fa-telegram"></i></a>
-            <a href="https://github.com/wwades" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="mailto:couplesuicide@proton.me"><i class="fas fa-envelope"></i></a>
-            <a href="https://pug-vpn.github.io" target="_blank"><i class="fas fa-shield-alt"></i></a>
+
+        <div class="links-list">
+            <a href="https://t.me/wades" class="btn" target="_blank">
+                <i class="fab fa-telegram-plane"></i>
+                Telegram
+            </a>
+            <a href="https://t.me/slvtc" class="btn" target="_blank">
+                <i class="fas fa-bullhorn"></i>
+                Channel
+            </a>
+            <a href="https://github.com/wwades" class="btn" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+            </a>
+            <a href="mailto:wade@onionmail.org" class="btn">
+                <i class="fas fa-envelope"></i>
+                Email
+            </a>
+            <a href="https://pug-vpn.github.io" class="btn" target="_blank">
+                <i class="fas fa-key"></i>
+                VPN Project
+            </a>
         </div>
+
+        <footer>
+            ~/
+        </footer>
     </div>
 
 </body>
