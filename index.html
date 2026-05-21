@@ -9,13 +9,12 @@
     
     <style>
         :root {
-            --base: #1e1e2e;
-            --surface0: #313244;
-            --overlay0: #6c7086;
-            --text: #cdd6f4;
-            --blue: #89b4fa;
-            --teal: #94e2d5;
-            --lavender: #b4befe;
+            --base: #0a0a0a;
+            --surface0: #161616;
+            --overlay0: #666666;
+            --text: #ededed;
+            --bright: #ffffff;
+            --border-alpha: rgba(255, 255, 255, 0.05);
         }
 
         * { box-sizing: border-box; }
@@ -29,7 +28,7 @@
             min-height: 100vh;
             font-family: 'JetBrains Mono', monospace;
             color: var(--text);
-            background-color: #11111b; 
+            background-color: var(--base); 
             overflow-x: hidden;
         }
 
@@ -46,51 +45,37 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            border: 1px solid rgba(180, 190, 254, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             object-fit: cover;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            filter: grayscale(100%);
         }
 
         h1 {
-            font-size: 28px;
-            margin: 0 0 25px 0;
+            font-size: 26px;
+            margin: 0 0 20px 0;
             font-weight: 800;
-            color: rgb(147, 164, 190);
+            color: var(--bright);
             letter-spacing: -1px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
         }
 
-        h1 img {
-            width: 32px;
-        }
-
-        
         .about-box {
-            background: rgba(49, 50, 68, 0.3); 
-            backdrop-filter: blur(25px) saturate(170%);
-            -webkit-backdrop-filter: blur(25px) saturate(170%);
-            border: 1px solid rgba(205, 214, 244, 0.05);
-            padding: 20px;
+            background: rgba(22, 22, 22, 0.4); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-alpha);
+            padding: 22px;
             border-radius: 12px;
             margin-bottom: 30px;
             text-align: left;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .about-box h3 {
             margin: 0 0 15px 0;
-            font-size: 15px;
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .about-box h3 img {
-            width: 24px;
+            font-size: 14px;
+            color: var(--bright);
+            font-weight: 800;
+            letter-spacing: 0.5px;
         }
 
         .about-box ul {
@@ -99,25 +84,26 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .about-box li {
             font-size: 12px;
-            color: rgb(146, 163, 189);
+            color: #b3b3b3;
+            line-height: 1.5;
             display: flex;
-            align-items: center;
-            gap: 12px;
-            line-height: 1.4;
+            align-items: flex-start;
         }
 
-        .about-box li img {
-            width: 20px;
+        .about-box li::before {
+            content: "—";
+            color: var(--overlay0);
+            margin-right: 10px;
             flex-shrink: 0;
         }
 
         .about-box strong {
-            color: var(--lavender);
+            color: var(--bright);
             font-weight: 800;
         }
 
@@ -127,37 +113,40 @@
             gap: 12px;
         }
 
-        
         .btn {
             text-decoration: none;
             color: var(--text);
-            background: rgba(49, 50, 68, 0.3);
-            backdrop-filter: blur(25px) saturate(170%);
-            -webkit-backdrop-filter: blur(25px) saturate(170%);
-            border: 1px solid rgba(205, 214, 244, 0.05);
+            background: rgba(22, 22, 22, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-alpha);
             padding: 18px 25px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             gap: 18px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: 11px;
             letter-spacing: 2px;
         }
 
         .btn i {
-            font-size: 18px;
-            width: 24px;
-            color: rgb(146, 163, 189);
-            opacity: 0.8;
+            font-size: 16px;
+            width: 20px;
+            color: var(--overlay0);
+            transition: color 0.3s ease;
         }
 
         .btn:hover {
-            background: rgba(137, 180, 250, 0.1);
-            border-color: rgba(137, 180, 250, 0.4);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.25);
+            color: var(--bright);
+            transform: translateY(-1px);
+        }
+
+        .btn:hover i {
+            color: var(--bright);
         }
 
         footer {
@@ -170,33 +159,21 @@
 </head>
 <body>
 
-    <div class="bg-layer"></div>
-    <div class="overlay"></div>
-
     <div class="container">
         <img src="avatar.png" alt="wade" class="avatar">
         
-        <h1>
-            <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" alt="Waving Hand Emoji"/> 
-            Hi, I'm Wade!
-        </h1>
+        <h1>Hi, I'm Wade!</h1>
 
         <div class="about-box">
-            <h3>
-                <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket Emoji"/> 
-                Beginner DevSecOps Specialist
-            </h3>
+            <h3>Beginner DevSecOps Specialist</h3>
             <ul>
                 <li>
-                    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Desktop%20Computer.png" alt="Desktop Computer Emoji" /> 
                     <span>Focused on <strong>Database Management</strong> and backend logic</span>
                 </li>
                 <li>
-                    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Locked.png" alt="Lock Emoji" /> 
                     <span>Dedicated to <strong>Information Security</strong> best practices</span>
                 </li>
                 <li>
-                    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/1st%20Place%20Medal.png" alt="Medal Emoji" /> 
                     <span><strong>Aspiring to become a DevSecOps Senior</strong></span>
                 </li>
             </ul>
