@@ -66,7 +66,7 @@
             border: 1px solid var(--border-alpha);
             padding: 22px;
             border-radius: 12px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: left;
         }
 
@@ -107,12 +107,14 @@
             font-weight: 800;
         }
 
+        /* Сетка в два столбца */
         .links-list {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
         }
 
+        /* Компактные округлые кнопки-прямоугольники */
         .btn {
             text-decoration: none;
             color: var(--text);
@@ -120,20 +122,20 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border-alpha);
-            padding: 18px 25px;
-            border-radius: 12px;
+            padding: 16px 12px;
+            border-radius: 16px; /* Закругление */
             display: flex;
             align-items: center;
-            gap: 18px;
+            justify-content: center; /* Центрирование содержимого */
+            gap: 10px;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             text-transform: uppercase;
             font-size: 11px;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
         }
 
         .btn i {
-            font-size: 16px;
-            width: 20px;
+            font-size: 15px;
             color: var(--overlay0);
             transition: color 0.3s ease;
         }
@@ -149,6 +151,11 @@
             color: var(--bright);
         }
 
+        /* Растягиваем последнюю нечетную кнопку для симметрии */
+        .btn:last-child:nth-child(odd) {
+            grid-column: span 2;
+        }
+
         footer {
             margin-top: 50px;
             font-size: 10px;
@@ -160,7 +167,7 @@
 <body>
 
     <div class="container">
-        <img src="avatar.png" alt="wade" class="avatar">
+        <img src="avatar.png?v=1" alt="wade" class="avatar">
         
         <h1>Hi, I'm Wade!</h1>
 
